@@ -20,3 +20,14 @@ script:
 #테스트 성공 후
 after_success:
   - echo "Test Success"
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: ap-northeast-2
+  app: docker-react-app
+  env: DockerReactApp-env
+  bucket-name: elasticbeanstalk-ap-northeast-2-name
+  bucket-path: docker-react-app
+  on:
+    branch: main
